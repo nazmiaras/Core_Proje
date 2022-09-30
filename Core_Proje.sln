@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core_Proje", "Core_Proje\Core_Proje.csproj", "{BCF8C8C7-2311-456E-9F97-BB9A397E618A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core_Proje", "Core_Proje\Core_Proje.csproj", "{BCF8C8C7-2311-456E-9F97-BB9A397E618A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{998F2E53-99FB-47C5-951D-E62032F9EA0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{998F2E53-99FB-47C5-951D-E62032F9EA0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{7F44BFE5-8E50-491A-A09E-4A798FC7C275}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{7F44BFE5-8E50-491A-A09E-4A798FC7C275}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLayer", "EntityLayer\EntityLayer.csproj", "{AA25BE4A-D234-4888-8C60-0572DE82E6C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLayer", "EntityLayer\EntityLayer.csproj", "{AA25BE4A-D234-4888-8C60-0572DE82E6C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

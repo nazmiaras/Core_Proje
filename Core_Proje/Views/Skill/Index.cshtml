@@ -1,0 +1,51 @@
+﻿
+@using EntityLayer.Concrete
+@model List<Skill>
+@{
+    ViewData["Title"] = "Yetenekler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card-header pb-0">
+              <h6>Yetenek Listesi Tablosu</h6>
+            </div>
+<div class="table-responsive p-0">
+                <table class="table align-items-center justify-content-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Başlık</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Oran</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sil</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Düzenle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach (var item in Model)
+                   {
+                       <tr>
+                      <td>
+                        @item.SkillID
+                      </td>
+                      <td>
+                        <p class="text-sm font-weight-bold mb-0">@item.Title</p>
+                      </td>
+                      <td class="align-middle text-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                          <span class="me-2 text-xs font-weight-bold">@item.Value%</span>
+                          <div>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-danger">Sil</a></td>
+                      <td><a href="/Skill/EditSkill/@item.SkillID" class="btn btn-warning">Düzenle</a></td>
+                    </tr>
+                   }
+                  </tbody>
+                </table>
+                <br />
+                <a href="/Skill/AddSkill" class="btn btn-primary">Yeni Yetenek Ekle</a>
+              </div>
+

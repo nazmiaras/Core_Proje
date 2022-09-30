@@ -1,0 +1,62 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card-header pb-0">
+              <h6>Portfolyo Listesi Tablosu</h6>
+            </div>
+<div class="table-responsive p-0">
+                <table class="table align-items-center justify-content-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Proje</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ücret</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Durum</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Görseller</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tamamlama Durumu</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sil</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Düzenle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach (var item in Model)
+                   {
+                       <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="@item.Platform" class="avatar avatar-sm me-3" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">@item.Name</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>@item.Price</td>
+                      <td>
+                        <p class="text-sm font-weight-bold mb-0"><span class="badge badge-sm bg-gradient-success">Tamamlandı</span></p>
+                      </td>
+                      <td class="align-middle text-center">
+                          @item.Name
+                      </td>
+                      <td class="align-middle text-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                          <span class="me-2 text-xs font-weight-bold">@item.Value%</span>
+                          <div>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td><a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-danger">Sil</a></td>
+                      <td><a href="/Portfolio/EditPortfolio/@item.PortfolioID" class="btn btn-warning">Düzenle</a></td>
+                    </tr>
+                   }
+                  </tbody>
+                </table>
+                <br />
+                <a href="/Portfolio/AddPortfolio" class="btn btn-primary">Yeni Proje Ekle</a>
+              </div>
