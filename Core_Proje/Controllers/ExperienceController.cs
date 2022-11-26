@@ -1,17 +1,17 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Core_Proje.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ExperienceController : Controller
     {
         ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
         public IActionResult Index()
         {
-            ViewBag.d1 = "Deneyimler";
-            ViewBag.d2 = "Deneyim Listesi";
             var values = experienceManager.TGetList();
             return View(values);
         }
@@ -19,8 +19,6 @@ namespace Core_Proje.Controllers
         [HttpGet]
         public IActionResult AddExperience()
         {
-            ViewBag.d1 = "Deneyimler";
-            ViewBag.d2 = "Deneyim Ekle";
             return View();
         }
 
@@ -41,8 +39,6 @@ namespace Core_Proje.Controllers
         [HttpGet]
         public IActionResult EditExperience(int id)
         {
-            ViewBag.d1 = "Deneyimler";
-            ViewBag.d2 = "Deneyim Düzenle";
             var experience = experienceManager.TGetByID(id);
             return View(experience);
         }

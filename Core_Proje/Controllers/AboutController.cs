@@ -10,8 +10,6 @@ namespace Core_Proje.Controllers
         AboutManager aboutManager = new AboutManager(new EfAboutDal());
         public IActionResult Index()
         {
-            ViewBag.d1 = "Anasayfa";
-            ViewBag.d2 = "Hakkımda";
             var values = aboutManager.TGetByID(1);
             return View(values);
         }

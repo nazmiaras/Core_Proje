@@ -10,8 +10,6 @@ namespace Core_Proje.Controllers
         FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
         public IActionResult Index()
         {
-            ViewBag.d1 = "Anasayfa";
-            ViewBag.d2 = "Öne Çıkanlar";
             var values = featureManager.TGetByID(1);
             return View(values);
         }

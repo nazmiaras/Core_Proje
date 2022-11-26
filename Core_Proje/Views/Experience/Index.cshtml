@@ -3,42 +3,43 @@
 @model List<Experience>
 @{
     ViewData["Title"] = "Deneyimler";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
-<div class="card-header pb-0">
-              <h6>Deneyim Listesi Tablosu</h6>
-            </div>
-<div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Başlık</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tarih</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Sil</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Düzenle</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach (var item in Model)
-                   {
-                       <tr>
-                      <td>
-                        @item.ExperienceID
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">@item.Name</p>
-                      </td>
-                      <td class="align-middle text-center">
-                          @item.Date
-                      </td>
-                      <td><a href="/Experience/DeleteExperience/@item.ExperienceID" class="btn btn-danger">Sil</a></td>
-                      <td><a href="/Experience/EditExperience/@item.ExperienceID" class="btn btn-warning">Düzenle</a></td>
-                    </tr>
-                   }
-                  </tbody>
-                </table>
-                <br />
-                <a href="/Experience/AddExperience" class="btn btn-primary">Yeni Deneyim Ekle</a>
+
+<div class="row">
+
+  <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Deneyimler</h4>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                            <th>Düzenle</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach(var item in Model){
+                           <tr>
+                            <td>@item.ExperienceID</td>
+                            <td>@item.Name</td>
+                            <td>@item.Date</td>
+                            <td><a href="/Experience/DeleteExperience/@item.ExperienceID" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Experience/EditExperience/@item.ExperienceID" class="btn btn-outline-success">Güncelle</a></td>
+                          </tr>
+                          }
+                        </tbody>
+                      </table>
+                      <br />
+                      <a href="/Experience/AddExperience" class="btn btn-outline-info">Yeni Deneyim Ekle</a>
+                    </div>
+                  </div>
+                </div>
               </div>
 
+</div>

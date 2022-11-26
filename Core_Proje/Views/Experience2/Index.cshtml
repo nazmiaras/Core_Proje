@@ -1,0 +1,108 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="btnGetListAll" class="btn btn-outline-primary">Verileri Getir</button>
+        <button type="button" id="btnAddExperience" class="btn btn-outline-info">Kaydet</button>
+        <button type="button" id="btnID" class="btn btn-outline-warning">ID İle Getir</button>
+        <button type="button" id="btnDelete" class="btn btn-outline-danger">Sil</button>
+        <button type="button" id="btnUpdate" class="btn btn-outline-success">Güncelle</button>
+    </div>
+</div>
+<br />
+<div class="col-md-12">
+    <h4>Ekleme Paneli</h4>
+    <input type="text" class="form-control" id="inpName" placeholder="Ad" />
+    <br />
+    <input type="text" class="form-control" id="inpDate" placeholder="Tarih" />
+    <br />
+</div>
+<div class="col-md-12">
+    <h4>ID'ye Göre Getirme Paneli</h4>
+    <input type="text" class="form-control" id="inpID" placeholder="ID Giriniz" />
+</div>
+<br />
+<div class="col-md-12">
+    <h4>Silme Paneli</h4>
+    <input type="text" class="form-control" id="inpExpID" placeholder="ID Giriniz" />
+</div>
+<br />
+<h4 class="text-center">Deneyim Listesi</h4>
+<div id="listExperience" class="p-2">
+
+</div>
+
+@section Scripts{
+    <script>
+        $('#btnGetListAll').click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: 'Get',
+                url: "/Experience2/ListExperience/",
+                success: function (funk) {
+                    let values = jQuery.parseJSON(funk);
+                    console.log(values);
+
+                    let htmlst = "<table class='table table-bordered'> <tr> <th> ID </th> <th> Başlık </th> <th> Tarih </th> </tr>";
+                    $.each(values, (index, value) => {
+                        htmlst += `<tr> <td> ${value.ExperienceID}</td> <td>${value.Name}</td> <td>${value.Date}</td> </tr>`;
+                    });
+                    htmlst += "</table>";
+                    $('#listExperience').html(htmlst);
+                }
+            });
+        });
+
+        $("#btnAddExperience").click(function(){
+            let values = {
+                Name: $("#inpName").val(),
+                Date: $("#inpDate").val()
+            };
+            $.ajax({
+                type:"Post",
+                url:"/Experience2/AddExperience/",
+                data:values,
+                success:function(funk1){
+                    let result = jQuery.parseJSON(funk1);
+                    alert(result.Name + " Başarılı bir şekilde eklendi.");
+                }
+            });
+        });
+
+        $('#btnID').click(function(){
+            let id = $('#inpID').val();
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type:"Get",
+                url: "/Experience2/GetById/"+id,
+                success:function(funk3){
+                    let values = jQuery.parseJSON(funk3);
+                    console.log(values);
+
+                    let htmlst = "<table class='table table-bordered'> <tr> <th> ID </th> <th> Başlık </th> <th> Tarih </th> </tr> <tr> <td> "+values.ExperienceID+"</td> <td>"+values.Name+"</td> <td>"+values.Date+"</td> </tr> </table>";
+                    $('#listExperience').html(htmlst);
+                }
+            });
+            console.log(id);
+        });
+        
+        $('#btnDelete').click(function(){
+            let id = $('#inpExpID').val();
+            $.ajax({
+                url: '/Experience/DeleteExperience/' + id,
+                type:"Get",
+                contentType:'application/json',
+                dataType:'json',
+                success:function(funk4){
+                    loadData();
+                }
+            });
+        });
+    </script>
+}

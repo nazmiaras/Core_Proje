@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLayer", "EntityLayer\EntityLayer.csproj", "{AA25BE4A-D234-4888-8C60-0572DE82E6C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core_Proje_Api", "Core_Proje_Api\Core_Proje_Api.csproj", "{9D7DC6C3-C2E7-4701-8A9A-DFFA1B888313}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AA25BE4A-D234-4888-8C60-0572DE82E6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA25BE4A-D234-4888-8C60-0572DE82E6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA25BE4A-D234-4888-8C60-0572DE82E6C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D7DC6C3-C2E7-4701-8A9A-DFFA1B888313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D7DC6C3-C2E7-4701-8A9A-DFFA1B888313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D7DC6C3-C2E7-4701-8A9A-DFFA1B888313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D7DC6C3-C2E7-4701-8A9A-DFFA1B888313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

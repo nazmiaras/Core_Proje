@@ -17,8 +17,6 @@ namespace Core_Proje.Controllers
         [HttpGet]
         public IActionResult AddService()
         {
-            ViewBag.d1 = "Hizmet Listesi";
-            ViewBag.d2 = "Hizmet Ekle";
             return View();
         }
 
@@ -39,8 +37,6 @@ namespace Core_Proje.Controllers
         [HttpGet]
         public IActionResult EditService(int id)
         {
-            ViewBag.d1 = "Deneyimler";
-            ViewBag.d2 = "Deneyim Düzenle";
             var experience = serviceManager.TGetByID(id);
             return View(experience);
         }

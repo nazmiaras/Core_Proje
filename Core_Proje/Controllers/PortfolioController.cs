@@ -19,9 +19,6 @@ namespace Core_Proje.Controllers
         [HttpGet]
         public IActionResult AddPortfolio()
         {
-            ViewBag.d1 = "Anasayfa";
-            ViewBag.d2 = "Projeler";
-
             return View();
         }
 
@@ -56,8 +53,6 @@ namespace Core_Proje.Controllers
         [HttpGet]
         public IActionResult EditPortfolio(int id)
         {
-            ViewBag.d1 = "Anasayfa";
-            ViewBag.d2 = "Projeler";
             var portfolio = portfolioManager.TGetByID(id);
             return View(portfolio);
         }
